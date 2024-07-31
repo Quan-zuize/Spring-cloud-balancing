@@ -1,0 +1,34 @@
+server:
+  port: 8761
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    registry-fetch-interval-seconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  server:
+    response-cache-update-interval-ms: 10000
+    expected-client-renewal-interval-seconds: 15
+    renewal-percent-threshold: 0.85
+  instance:
+    hostname: localhost
+    lease-expiration-duration-in-seconds: 45
+spring:
+  application:
+    name: spring-cloud-balancing
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+#        backoff:
+#          enabled: true
+#          min-backoff: 0s
+#          jitter: 1
+        max-retries-on-next-service-instance: -1
+        max-retries-on-same-service-instance: 5
+        retry-on-all-operations: true
+        avoid-previous-instance: false
+logging:
+  level:
+    root: DEBUG
