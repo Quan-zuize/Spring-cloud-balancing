@@ -1,7 +1,6 @@
 package com.retry.spring_cloud_balancing;
 
 import feign.Feign;
-import feign.Logger;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.context.annotation.Bean;
